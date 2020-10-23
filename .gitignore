@@ -1,0 +1,6 @@
+award/
+*.pyc
+
+
+.env
+.vscode
