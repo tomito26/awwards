@@ -12,10 +12,10 @@
                 <div class="media-body pt-3">
                     <h2 class="account-heading ml-3">{{user.username}}</h2>
                     <p class="ml-3">{{user.email}}</p>
-                    <p>{{user.profile.bio}}</p>
+                    <p class="ml-3 pt-3">{{user.profile.bio}}</p>
                 </div>
             </div>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" class="pt-3">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">Profile Info</legend>
