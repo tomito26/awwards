@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -14,7 +15,11 @@ def register(request):
             return redirect('login')   
     else:
         form = UserRegisterForm()
-    return render(request,'users/register.html',{'form':form})
+    return render(request,'registration/register.html',{'form':form})
 
 def  home(request):
     return render(request,'home.html')
+
+
+def profile(request):
+    return(request,'users/profile.html')
