@@ -15,7 +15,11 @@ import os
 import django_heroku
 from typing import cast
 import dj_database_url
-from decouple import Config, config,Csv
+from decouple import config,Csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 MODE=config('MODE',default='dev')
 SECRET_KEY=config('SECRET_KEY')
@@ -32,8 +36,8 @@ if config('MODE')=='dev':
             'PORT': '',
         }
     }
-# production 
-else: 
+# production
+else:
     DATABASES={
         'default': dj_database_url.config(
             default=config('DATABASE_URL')
@@ -149,6 +153,9 @@ STATICFILES_DIRS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+cloudinary.config(cloud_name=config('CLOUD_NAME'),
+                  api_key=config('CLOUD_API_KEY'),
+                  api_secret=config("CLOUD_API_SECRET"))
 
 
 django_heroku.settings(locals())
