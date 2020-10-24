@@ -2,6 +2,18 @@
 
 
 {% block content %}
-<h1>{{user.username}}</h1>
+<div class="container pt-5">
+    <div class="row pt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 d-flex">
+            <img src="{{user.profile.image.url}}" alt="" class="img-fluid rounded-circle" style="height: 100px;width:100px">
+            <div class="media-body pt-5">
+                <h2 class="account-heading ml-3">{{user.username}}</h2>
+                <p class="ml-3">{{user.email}}</p>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
 
 {% endblock %}
