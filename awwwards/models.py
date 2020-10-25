@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 
 # Create your models here.
@@ -17,3 +18,6 @@ class Project(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('project-detail',kwargs={'pk':self.pk})
