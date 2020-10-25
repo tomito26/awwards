@@ -64,3 +64,20 @@ class ProjectDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
             return True
 
         return False
+
+def search_results(request):
+   if 'query' in request.GET  and request.GET['query']:
+       search_term = request.GET.get('query')
+       searched_projects = Project.search_by_title(search_term)
+       
+       message = f"search_term"
+       context ={
+           'message':message,
+           'projects':searched_projects
+       }
+       
+       return render(request,'awwwards/search.html',context)
+   
+   else:
+       message = "You haven't searched for any term"
+       return render(request,'awwwards/search.html',{'message':message})
