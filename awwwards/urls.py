@@ -1,7 +1,7 @@
 from django.db.models.query import Prefetch
 from django.urls import path
 from . import views
-from .views import ProjectDeleteView, ProjectListView,ProjectDetailView,ProjectCreateView, ProjectUpdateView, SearchResultsView,UserProjectListView
+from .views import ProjectDeleteView, ProjectListView,ProjectDetailView,ProjectCreateView, ProjectUpdateView, UserProjectListView
 
 
 urlpatterns = [

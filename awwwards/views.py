@@ -70,7 +70,7 @@ def search_results(request):
        search_term = request.GET.get('query')
        searched_projects = Project.search_by_title(search_term)
        
-       message = f"search_term"
+       message = f"{search_term}"
        context ={
            'message':message,
            'projects':searched_projects
