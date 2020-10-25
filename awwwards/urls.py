@@ -3,4 +3,5 @@ from awwwards import views
 
 urlpatterns = [
     path('',views.home,name='home'),
+    path('post/',views.submitpost, name='post')
 ]

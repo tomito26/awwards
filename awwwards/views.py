@@ -10,4 +10,8 @@ def home(request):
         'projects':projects
     }
     return render(request,'home.html',context)
+
+def submitpost(request):
+    
+    return render(request,'post.html')
     
