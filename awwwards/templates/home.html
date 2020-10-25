@@ -10,5 +10,23 @@
         <a href="https://tomito26.github.io/portfolio/" class="btn btn-outline-light">visit the site</a>
     </div>
 </div>
+<div class="container-fluid pb-5">
+    <div class="row pt-5">
+        {% for project_item in projects %}
+            <div class="col-md-4 p-3">
+                <div class="card">
+                    <img src="{{project_item.project_image.url}}" alt="" class="img-fluid">
+                    <div class="card-body">
+                        <h4 class="text-center card-text">{{project_item.title}}</h4>
+                        <div class="pt-3 d-flex">
+                            <img src="{{project_item.author.profile.image.url}}" alt="" class="img-fluid rounded-circle ml-3" style="height:50px;width:50px">
+                            <p class="ml-3 pt-3">By {{project_item.author}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

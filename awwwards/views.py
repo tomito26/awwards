@@ -4,5 +4,10 @@ from .models import Project
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html')
+    projects = Project.objects.all()
+    
+    context = {
+        'projects':projects
+    }
+    return render(request,'home.html',context)
     
