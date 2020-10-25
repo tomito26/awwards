@@ -17,9 +17,13 @@
                 <div class="card-footer d-flex">
                     <img src="{{object.author.profile.image.url}}" alt="" class="img-fluid rounded-circle ml-3"
                         style="height:50px;width:50px">
-                    <small class="ml-3 pt-3">By {{object.author}}</small>
+                    <a href="{% url 'user-projects' object.author.username %}"><small class="ml-3 pt-3">By {{object.author}}</small></a>
                 </div>
             </div>
+            {% if object.author == user %}
+             <a class="btn btn-secondary btn-sm mt-1 mb1" href="{% url 'project-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb1" href="{% url 'project-delete' object.id %}">Delete</a>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -1,0 +1,31 @@
+{% extends 'awwwards/base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-3 pt-5">Posts by {{view.kwargs.username}}</h1>
+        <div class="row">
+            {% for project_item in projects %}
+            <div class="col-md-4 p-3">
+                <div class="card">
+                    <a href="{% url 'project-detail' project_item.id %}"><img src="{{project_item.project_image.url}}"
+                            alt="" class="img-fluid"></a>
+                    <div class="card-body">
+                        <h4 class="text-center card-text">{{project_item.title}}</h4>
+                        <div class="d-flex justify-content-between">
+                            <p>From {{project_item.country}}</p>
+                            <p class="ml-5 pl-5">{{project_item.date_posted|date:"d F Y"}}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex">
+                        <img src="{{project_item.author.profile.image.url}}" alt="" class="img-fluid rounded-circle ml-3"
+                            style="height:50px;width:50px">
+                        <a href="{% url 'user-projects' project_item.author.username %}"><small class="ml-3 pt-3">By {{project_item.author}}</small></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

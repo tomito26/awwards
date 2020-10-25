@@ -26,7 +26,7 @@
                     <div class="card-footer d-flex">
                             <img src="{{project_item.author.profile.image.url}}" alt="" class="img-fluid rounded-circle ml-3"
                                 style="height:50px;width:50px">
-                            <small class="ml-3 pt-3">By {{project_item.author}}</small>
+                            <a href="{% url 'user-projects' project_item.author.username %}"><small class="ml-3 pt-3">By {{project_item.author}}</small></a>
                     </div>
                 </div>
             </div>
