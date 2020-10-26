@@ -1,6 +1,6 @@
 
 # Awwwards App
-This  project is a [Awwwards](https://awwwards26.herokuapp.com/)website where users can  post their websites and it gets rated by other users,they also can rate other users websites
+This  project is a [Awwwards](https://awwwards26.herokuapp.com/) clone website where users can  post their websites and it gets rated by other users,they also can rate other users' websites
 
 Here is the landing page
 ![landing page](landingpage.png)
