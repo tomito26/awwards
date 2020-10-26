@@ -1,22 +1,29 @@
 
-# Gallery App
-This  project is a [instagram clone](https://gram98.herokuapp.com/)website where users can  post their  images,like and follow other followers
- Heres the home page
- ![home](homeinsta.png)
- On clicking upload on the navbar
- ![image](uploadingimage.png)
+# Awwwards App
+This  project is a [Awwwards](https://awwwards26.herokuapp.com/)website where users can  post their websites and it gets rated by other users,they also can rate other users websites
 
+Here is the landing page
+![landing page](landingpage.png)
 
+These are the posts by the users
+![websites](websites.png)
+
+THis is the page where the user update profile photos and bio
+
+![Update profile](updateprofile.png)
+ 
 ## Author
 * Thomas Khaemba 
 
 ## Features
-* The website has a navbar  with icon of the website which directs the user to home page likewise the homepage
-* The uploadimage on the navbar when clicked it gives a section where you add caption and image itself
-* The website has a searchbar where you can search for images by using a single word or nameof the image
-* The images have clickable comment icon which reveal the  details of the image and comments
-* The settings on the navbar has both the logout and profile details
+* The website has a navbar  with  a text about the name of the website which directs the user to home page likewise the home component on the navbar
+* The navbar has a submit site button where when clicked the user is directed to a newpage where they can get a form where they can add the details of their sites and submit them 
+* The navbar has an account settings that contains  a dropdown with a profile page link where users can change their profile names emails,profile pictures and also update their bios.
+* The app has a search form where users can type any word or the title of the web page and it returns the  name of the website posted with its landing page
+* The posted sites landing page are clickable which direct the user to  a new page with more details about the site and also a rate button where a user can click on it and rate the page
+* The usernames on the posted sites are also clickable which directs the users to owners of the posted sites
 * The app has a functioning authentication system where users can login  and register
+* 
 
 ## Installations 
 For this project to run one needs python  and pip installations
@@ -74,7 +81,7 @@ click on the link provided when you get to the site  on browsers searchbar   add
 ```
 at the end of the local host
 
-then login and you can now add images ,update or delete the images
+then login and you can now add images ,update or delete the images posted and also keep track of the projects.
 
 ## Technologies Used
 * Python
