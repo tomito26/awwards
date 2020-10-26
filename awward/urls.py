@@ -17,8 +17,7 @@ import awwwards
 from os import name
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
-from django.urls import path
-from django.urls.conf import include
+from django.urls import path,re_path,include
 from users import views as user_views
 from django.contrib.auth import views as auth_views
 

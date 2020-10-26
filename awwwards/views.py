@@ -1,10 +1,13 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render,get_object_or_404
+from rest_framework.response import Response
 from .models import Project
 from django.contrib.auth.models import User
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from .forms import RateForm
+from rest_framework import generics
+from .serializers import ProjectSerializer
 # Create your views here.
 
 class ProjectListView(ListView):
@@ -106,5 +109,11 @@ def rate(request,project_id):
     }
     return  render(request,'awwwards/project_detail.html',context)
     
-            
-        
+class ListProjectsView(generics.ListAPIView):
+    '''
+    Provides a get method handler
+    ''' 
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+    
+    
