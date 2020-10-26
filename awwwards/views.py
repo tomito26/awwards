@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from .forms import RateForm
 from rest_framework import generics
 from .serializers import ProjectSerializer
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 class ProjectListView(ListView):
@@ -87,7 +88,7 @@ def search_results(request):
        message = "You haven't searched for any term"
        return render(request,'awwwards/search.html',{'message':message})
    
-
+@login_required
 def rate(request,project_id):
     project = Project.objects.get(id=project_id)
     user = request.user

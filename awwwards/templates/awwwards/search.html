@@ -14,7 +14,7 @@
     <div class="row pt-5">
         {% if projects %}
             {% for project in projects %}
-                <div class="col-sm-6 col-md-6">
+                <div class="col-sm-6 col-md-6 p-3">
                     <h2>{{project.title}}</h2>
                     <a href="{% url 'project-detail' project.id%}"><img src="{{project.project_image.url}}" alt="{{project.title}}" class="img-fluid"></a>
                 </div>

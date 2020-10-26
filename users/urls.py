@@ -1,2 +1,8 @@
 from django.urls import path
-from users import views
+from . import views
+from .views import ListProfileView
+
+
+urlpatterns = [
+    path('api/profile/',ListProfileView.as_view())
+]
