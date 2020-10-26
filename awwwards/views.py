@@ -4,7 +4,7 @@ from .models import Project
 from django.contrib.auth.models import User
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
-
+from .forms import RateForm
 # Create your views here.
 
 class ProjectListView(ListView):
@@ -34,6 +34,7 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
     fields = [
         'title', 'description', 'project_image', 'link', 'country'
     ]
+    
     def form_valid(self,form):
         form.instance.author = self.request.user
         return super().form_valid(form)
@@ -81,3 +82,29 @@ def search_results(request):
    else:
        message = "You haven't searched for any term"
        return render(request,'awwwards/search.html',{'message':message})
+   
+
+def rate(request,project_id):
+    project = Project.objects.get(id=project_id)
+    user = request.user
+    
+    if request.method == 'POST':
+        form =RateForm(request.POST)
+        if form.is_valid():
+            rate =  form.save(commit=False)
+            rate.user = user
+            rate.project = project
+            rate.save()
+            return redirect('project-details',args=[project_id])
+    
+    else:
+        form = RateForm()
+        
+    context = {
+        'form':form,
+        'project':project,
+    }
+    return  render(request,'awwwards/project_detail.html',context)
+    
+            
+        

@@ -3,28 +3,25 @@
 {% block content %}
 <div class="container-fluid pb-5">
     <div class="row pt-5">
-
-        <div class="col-md-4 p-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 p-3">
+            <a href="{{object.link}}"><h4 class="text-center">{{object.title}}</h4></a>
             <div class="card">
                 <img src="{{object.project_image.url}}" alt="" class="img-fluid">
-                <div class="card-body">
-                    <h4 class="text-center card-text">{{object.title}}</h4>
-                    <div class="d-flex justify-content-between">
-                        <p>From {{project_item.country}}</p>
-                        <p class="ml-5 pl-5">{{object.date_posted|date:"d F Y"}}</p>
-                    </div>
-                </div>
+                
                 <div class="card-footer d-flex">
                     <img src="{{object.author.profile.image.url}}" alt="" class="img-fluid rounded-circle ml-3"
                         style="height:50px;width:50px">
                     <a href="{% url 'user-projects' object.author.username %}"><small class="ml-3 pt-3">By {{object.author}}</small></a>
                 </div>
             </div>
+            <p class="pt-3 mt-3 text-center">{{object.description}}</p>
             {% if object.author == user %}
              <a class="btn btn-secondary btn-sm mt-1 mb1" href="{% url 'project-update' object.id %}">Update</a>
             <a class="btn btn-danger btn-sm mt-1 mb1" href="{% url 'project-delete' object.id %}">Delete</a>
             {% endif %}
         </div>
+        <div class="col-md-3"></div>
     </div>
 </div>
 {% endblock %}
