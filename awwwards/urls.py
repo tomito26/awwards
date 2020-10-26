@@ -12,7 +12,8 @@ urlpatterns = [
     path('project/<int:pk>/update/',ProjectUpdateView.as_view(),name='project-update'),
     path('project/<int:pk>/delete',ProjectDeleteView.as_view(), name='project-delete'),
     path('search/',views.search_results, name='search_results'),
-    path('project/<int:project_id>/rate',views.rate,name='rate-movie'),
-    re_path('api/project/', ListProjectsView.as_view())
+    path('rate/<int:project_id>/',views.rate,name='rate-project'),
+    re_path('api/project/', ListProjectsView.as_view()),
+    
         
 ]

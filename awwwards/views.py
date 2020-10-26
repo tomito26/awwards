@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.http import request
 from django.shortcuts import redirect, render,get_object_or_404
 from rest_framework.response import Response
 from .models import Project
@@ -98,16 +99,12 @@ def rate(request,project_id):
             rate.user = user
             rate.project = project
             rate.save()
-            return redirect('project-details',args=[project_id])
+            return render(request,'awwwards/project_detail.html', locals())
     
     else:
         form = RateForm()
         
-    context = {
-        'form':form,
-        'project':project,
-    }
-    return  render(request,'awwwards/project_detail.html',context)
+    return  render(request,'awwwards/rate.html',locals())
     
 class ListProjectsView(generics.ListAPIView):
     '''
@@ -115,5 +112,6 @@ class ListProjectsView(generics.ListAPIView):
     ''' 
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    
     
     

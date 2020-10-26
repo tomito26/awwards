@@ -27,11 +27,26 @@ class Project(models.Model):
         post = cls.objects.filter(title__icontains=search_term)
         return post
 
+    def no_of_ratings(self):
+        ratings = Review.objects.filter(project=self)
+        return len(ratings)
 
+    def average_ratings(self):
+        sum = 0
+        ratings = Review.objects.filter(project=self)
+        for rating in ratings:
+            sum += ((rating.rate_design + rating.rate_usability +
+                     rating.rate_content) / 3)
+        if len(ratings) > 0:
+            return sum / len(ratings)
+        else:
+            return 0
+
+  
 
 
 RATE_CHOICES = [
-    (1,'1 - Trash'),
+    (1,'1 - awful2'),
     (2,'2 - Horrible'),
     (3,'3 - Terrible'),
     (4,'4 - Bad'),
@@ -48,10 +63,12 @@ class Review(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     project = models.ForeignKey(Project,on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
-    text = models.TextField(blank=True)
-    rate = models.PositiveSmallIntegerField(choices=RATE_CHOICES)
-   
-    
+    text = models.TextField(blank=True,null=True)
+    rate_design = models.PositiveSmallIntegerField(choices=RATE_CHOICES,null=True)
+    rate_usability = models.PositiveSmallIntegerField(choices=RATE_CHOICES,null=True)
+    rate_content = models.PositiveIntegerField(choices=RATE_CHOICES ,null=True)
+
+
     def __str__(self):
-        
+
         return self.user.username

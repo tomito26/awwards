@@ -14,8 +14,10 @@
                         style="height:50px;width:50px">
                     <a href="{% url 'user-projects' object.author.username %}"><small class="ml-3 pt-3">By {{object.author}}</small></a>
                 </div>
+                <a class="btn btn-outline-dark" href="{% url 'rate-project' project_id=object.id %}">Rate</a>
             </div>
             <p class="pt-3 mt-3 text-center">{{object.description}}</p>
+            <p>{{object.rate_usability}}</p>
             {% if object.author == user %}
              <a class="btn btn-secondary btn-sm mt-1 mb1" href="{% url 'project-update' object.id %}">Update</a>
             <a class="btn btn-danger btn-sm mt-1 mb1" href="{% url 'project-delete' object.id %}">Delete</a>
