@@ -23,7 +23,7 @@ THis is the page where the user update profile photos and bio
 * The posted sites landing page are clickable which direct the user to  a new page with more details about the site and also a rate button where a user can click on it and rate the page
 * The usernames on the posted sites are also clickable which directs the users to owners of the posted sites
 * The app has a functioning authentication system where users can login  and register
-* 
+* The project also has an api of the [profile](https://awwwards26.herokuapp.com/api/profile/) and [projects](https://awwwards26.herokuapp.com/api/project/) posted
 
 ## Installations 
 For this project to run one needs python  and pip installations
